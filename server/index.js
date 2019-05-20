@@ -12,10 +12,12 @@ const logerror = debug('tetris:error')
     , loginfo = debug('tetris:log')
 
     io.sockets.on('connection', (socket) => {
-        console.log('connection')
+        console.log('connection: ' + socket.id)
+        socket.emit('SERVER_MESSAGE', 'connection: ' + socket.id)
         
         socket.on('disconnect', (action) => {
           console.log("User disconnected: " + socket.id)
+          socket.emit('SERVER_MESSAGE', 'disconnected: ' + socket.id)
         })
       })
 

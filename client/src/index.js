@@ -3,9 +3,12 @@ import ReactDom from 'react-dom';
 import { Provider } from 'react-redux';                                                                                                                                                    
 import App from './components/app';
 import {store} from './config/store';
+import {socketStream} from './config/socketStream';
 
 ReactDom.render((
     <Provider store={store}>
         <App/>
     </Provider>
 ), document.getElementById('tetris'))
+
+socketStream();
