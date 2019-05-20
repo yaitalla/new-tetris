@@ -1,0 +1,26 @@
+{
+  "name": "new-tetris",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint src",
+    "client-dist": "NODE_ENV=production webpack --progress --colors",
+    "client-dev": "webpack-dev-server --colors --hot --inline --host 0.0.0.0 --port 8080 --open",
+    "srv-dev": "DEBUG=tetris:* babel-watch -w src src/server/main.js",
+    "srv-dist": "DEBUG=tetris:* babel src --out-dir dist",
+    "test": "mocha --require babel-core/register --reporter spec",
+    "coverage": "NODE_ENV=test nyc --include src --all -r text -r lcov -r text --require babel-core/register mocha "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yaitalla/new-tetris.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yaitalla/new-tetris/issues"
+  },
+  "homepage": "https://github.com/yaitalla/new-tetris#readme"
+}
