@@ -1,0 +1,14 @@
+
+body {
+    font-family: "Press Start 2P";
+    height: 100vh
+  }
+  
+  .flexContainer {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid silver;
+    height: 100vh;
+    align-items: center;
+    background-color: cyan;
+  }
