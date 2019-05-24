@@ -1,20 +1,19 @@
 import React from 'react'
 import socket from '../config/socketConnect'
-import { connect } from 'react-redux';
+import Landing from './landing';
 
-const App = ({message}) => {
-  console.log(message)
+const globalStyle = {
+  display: "flex",
+  justifyContent: "center"
+}
+
+const App = () => {
   return (
-      <div>
-        <h2>{message}</h2>
+      <div style={globalStyle} >
+        <Landing/>
       </div>
     )
 }
 
-const mapStateTopProps = (state) => {
-  return {
-    message: state.message
-  }
-}
 
-export default connect(mapStateTopProps)(App)
+export default App;
