@@ -19,6 +19,7 @@ export const infoWrap = {
     width: "100%",
 }
 
+
 export const userstyle = {
     width: "50%",
     backgroundRepeat: "no-repeat",
@@ -28,4 +29,11 @@ export const userstyle = {
     textAlign: "center",
     display: "flex",
     boxShadow: "3px 10px 20px 5px rgba(0, 0, 0, .5)",
+}
+
+
+export const form = {
+    display: 'flex',
+    flexDirection: "row",
+    justifyContent: "center"
 }

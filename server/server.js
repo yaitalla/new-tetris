@@ -39,6 +39,14 @@ const initEngine = io => {
         userlist.push(socket.id)
     }
     io.emit('USERS_UPDATE', userlist)
+    socket.on('CREATE_ROOM', roomname => {
+      const data = {
+        name: roomname,
+        owner: socket.id
+      }
+      roomlist.push(data)
+      io.emit('ROOM_CREATED', roomlist)
+    })
     //io.to(socket.id).emit('USER_ID', socket.id);
     socket.emit('USER_ID', socket.id)
     socket.on('disconnect', (action) => {

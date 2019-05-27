@@ -1,13 +1,19 @@
-import { ALERT, USERS_UPDATE, USER_ID } from './constants';
+import { ALERT, USERS_UPDATE, ROOM_CREATED, USER_ID } from './constants';
 
 const initial_state = {
     message: 'no message yet',
     users: [],
     yourID: "",
+    rooms: [],
 }
 
 const rootReducer = (state = initial_state, action) => {
     switch(action.type){
+        case ROOM_CREATED:
+        return {
+            ...state,
+            rooms: action.roomlist
+        }
         case USER_ID:
             return {
                 ...state,
