@@ -1,8 +1,32 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { mainWrap, title, userstyle} from './style'
+import { mainWrap, title, userstyle, rowStyle, btn} from './style'
 import Roombutton from './roombutton';
+import socket from '../../config/socketConnect';
 
+const enterRoom = (room) => {
+    socket.emit('ENTER_ROOM', room)
+}
+
+const row = (room, i) => {
+      return (
+        <div key={i} style={rowStyle}>
+            <button onClick={() => enterRoom(room)} style={btn}>{room.name}</button>
+        </div>
+    )
+}
+
+const roomName = (roomList) => {
+    return (
+        <div>
+            {
+                roomList.map((room, i) => 
+                    row(room, i)
+                )
+            }
+        </div>
+    )
+}
 
 const Rooms = ({rooms}) => {
     return (
@@ -11,7 +35,7 @@ const Rooms = ({rooms}) => {
             {
 
                 rooms.length > 0 ?
-                    rooms.map((room, i) => <h4 key={i}>{room.name}</h4>)
+                    roomName(rooms)
                     :
                     <h4>No rooms yet</h4>
             }

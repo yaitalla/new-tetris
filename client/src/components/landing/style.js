@@ -37,3 +37,15 @@ export const form = {
     flexDirection: "row",
     justifyContent: "center"
 }
+
+export const rowStyle = {
+    display: 'flex', 
+    flexDirection: "row",
+    justifyContent: "center"
+}
+
+export const btn = {
+    height: "25px",
+    borderRadius: "10px",
+    cursor: "pointer"
+}

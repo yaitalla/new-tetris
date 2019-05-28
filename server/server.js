@@ -38,21 +38,42 @@ const initEngine = io => {
     if (userlist.indexOf(socket.id) == -1){
         userlist.push(socket.id)
     }
-    io.emit('USERS_UPDATE', userlist)
+    io.emit('USERS_UPDATE', {userlist, roomlist})
     socket.on('CREATE_ROOM', roomname => {
       const data = {
         name: roomname,
-        owner: socket.id
+        owner: socket.id,
+        users: []
       }
       roomlist.push(data)
       io.emit('ROOM_CREATED', roomlist)
     })
     //io.to(socket.id).emit('USER_ID', socket.id);
     socket.emit('USER_ID', socket.id)
-    socket.on('disconnect', (action) => {
-        userlist.splice(userlist.indexOf(socket.id), 1);
-        io.emit('USERS_UPDATE', userlist)
-        loginfo("User disconnected: " + socket.id)
+
+    socket.on('ENTER_ROOM', data => {
+      let ret;
+      for (let i in roomlist) {
+        if (roomlist[i].name == data.name) {
+          ret = i
+          roomlist[i].users.push(socket.id)
+         }
+       }
+       socket.join(data.name)
+     socket.emit('ACTUAL_ROOM', ret)
+     io.emit('ROOM_UPDATE', roomlist)
+    })
+    socket.on('disconnect', () => {
+      for (let i in roomlist) {
+        for (let j in roomlist[i].users) {
+          if (roomlist[i].users[j] == socket.id) {
+            roomlist[i].users.splice(j, 1)
+          }
+        }
+       }
+       userlist.splice(userlist.indexOf(socket.id), 1)
+       io.emit('ROOM_UPDATE', roomlist)
+       io.emit('USERS_UPDATE', {userlist, roomlist})
     })
   })
 }

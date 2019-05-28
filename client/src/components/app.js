@@ -1,19 +1,30 @@
 import React from 'react'
 import socket from '../config/socketConnect'
 import Landing from './landing';
+import { connect } from 'react-redux';
+import Game from './game';
 
 const globalStyle = {
   display: "flex",
   justifyContent: "center"
 }
 
-const App = () => {
+const App = ({actualRoom, rooms}) => {
+  console.log(actualRoom, 'icila')
   return (
       <div style={globalStyle} >
-        <Landing/>
+      {
+        actualRoom != -1 ? <Game/> : <Landing/>
+      }
       </div>
     )
 }
 
+const mapStateToProps = (state) => {
+  return {
+    actualRoom: state.actualRoom,
+    rooms: state.rooms
+  }
+}
 
-export default App;
+export default connect(mapStateToProps)(App);
