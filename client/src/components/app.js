@@ -10,7 +10,6 @@ const globalStyle = {
 }
 
 const App = ({actualRoom, rooms}) => {
-  console.log(actualRoom, 'icila')
   return (
       <div style={globalStyle} >
       {

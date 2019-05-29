@@ -5,3 +5,4 @@ export const USER_ID = 'USER_ID';
 export const ROOM_CREATED = 'ROOM_CREATED';
 export const ACTUAL_ROOM = 'ACTUAL_ROOM';
 export const ROOM_UPDATE = 'ROOM_UPDATE';
+export const PAUSE = 'PAUSE';

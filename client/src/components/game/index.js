@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import UserList from './userlist';
+import Button from './button';
 import {game, title} from './style';
+
 
 const Game = ({actualRoom, rooms}) => {
     return (
         <div style={game}>
             <p style={title}>GAME</p>
             <UserList/>
+            <Button/>
         </div>
     )
 }

@@ -1,11 +1,12 @@
-import { ALERT, USERS_UPDATE, ROOM_CREATED, ROOM_UPDATE, USER_ID, ACTUAL_ROOM } from './constants';
+import { ALERT, USERS_UPDATE, ROOM_CREATED, ROOM_UPDATE, USER_ID, ACTUAL_ROOM, PAUSE } from './constants';
 
 const initial_state = {
     message: 'no message yet',
     users: [],
     yourID: "",
     rooms: [],
-    actualRoom: -1
+    actualRoom: -1,
+    playing: false
 }
 
 const rootReducer = (state = initial_state, action) => {
@@ -15,6 +16,11 @@ const rootReducer = (state = initial_state, action) => {
                 ...state,
                 rooms: action.rooms
             }
+        case PAUSE:
+            return {
+                ...state,
+                playing: action.playing   
+        }
         case ACTUAL_ROOM:
             return {
                 ...state,

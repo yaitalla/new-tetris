@@ -50,7 +50,11 @@ const initEngine = io => {
     })
     //io.to(socket.id).emit('USER_ID', socket.id);
     socket.emit('USER_ID', socket.id)
-
+    socket.on('PAUSE', data => {
+      io.in(data.room).emit('PAUSE', {
+        playing: data.playing == true ? false : true
+      })
+    })
     socket.on('ENTER_ROOM', data => {
       let ret;
       for (let i in roomlist) {
