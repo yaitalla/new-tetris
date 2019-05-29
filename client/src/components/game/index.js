@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserList from './userlist';
 import Button from './button';
 import {game, title} from './style';
+import GameField from './gamefield'
 
 
 const Game = ({actualRoom, rooms}) => {
@@ -11,6 +12,7 @@ const Game = ({actualRoom, rooms}) => {
             <p style={title}>GAME</p>
             <UserList/>
             <Button/>
+            <GameField/>
         </div>
     )
 }

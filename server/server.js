@@ -1,6 +1,7 @@
 const fs = require('fs')
 const debug = require('debug')
 const socketEngine = require('./socketEngine');
+const grid = require('./Process/grid');
 
 let userlist = [];
 let roomlist = [];
@@ -64,7 +65,7 @@ const initEngine = io => {
          }
        }
        socket.join(data.name)
-     socket.emit('ACTUAL_ROOM', ret)
+     socket.emit('ACTUAL_ROOM', {room: ret, field: grid()})
      io.emit('ROOM_UPDATE', roomlist)
     })
     socket.on('disconnect', () => {

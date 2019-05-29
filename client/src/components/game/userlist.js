@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {userlist, soudiv, image, nonimage, userRow} from './style';
-import controller from './controller.png';
+import controller from './assets/controller.png';
 
 
 const UserList = ({actualRoom, id, rooms}) => {

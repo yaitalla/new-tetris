@@ -6,7 +6,8 @@ const initial_state = {
     yourID: "",
     rooms: [],
     actualRoom: -1,
-    playing: false
+    playing: false,
+    field: []
 }
 
 const rootReducer = (state = initial_state, action) => {
@@ -24,7 +25,8 @@ const rootReducer = (state = initial_state, action) => {
         case ACTUAL_ROOM:
             return {
                 ...state,
-                actualRoom: action.room
+                actualRoom: action.room,
+                field: action.field
             }
         case ROOM_CREATED:
             return {

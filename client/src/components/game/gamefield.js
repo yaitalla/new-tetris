@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { gamefield } from './style';
 
 const GameField = ({message}) => {
     return (
-        <div>
+        <div style={gamefield}>
             {message}
         </div>
     )

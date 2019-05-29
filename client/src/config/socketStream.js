@@ -16,8 +16,8 @@ export const socketStream = () => {
     socket.on(ROOM_CREATED, rooms => {
         store.dispatch({type: ROOM_CREATED, roomlist: rooms})
     })
-    socket.on(ACTUAL_ROOM, rooms => {
-        store.dispatch({type: ACTUAL_ROOM, room: rooms})
+    socket.on(ACTUAL_ROOM, data => {
+        store.dispatch({type: ACTUAL_ROOM, room: data.room, field: data.field})
     })
     socket.on(ROOM_UPDATE, roomlist => {
         store.dispatch({type: ROOM_UPDATE, rooms: roomlist})

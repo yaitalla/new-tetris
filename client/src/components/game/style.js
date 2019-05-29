@@ -6,6 +6,15 @@ export const game = {
     width: "90vw",
     height: "90vh"
 }
+export const gamefield = {
+    display: "flex",
+    width: "90%",
+    height: "90%",
+    justifyContent: "center",
+    alignContent: "center",
+    alignSelf: "center",
+    backgroundColor: "silver"
+}
 
 export const title = {
     display: "flex",
@@ -20,7 +29,7 @@ export const userlist = {
     border: "1px solid black",
     alignContent: "center",
     borderRadius: "10px",
-    justifyContent: "center"
+    justifyContent: "center",
 }
 
 export const userRow = {
