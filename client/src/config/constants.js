@@ -6,3 +6,7 @@ export const ROOM_CREATED = 'ROOM_CREATED';
 export const ACTUAL_ROOM = 'ACTUAL_ROOM';
 export const ROOM_UPDATE = 'ROOM_UPDATE';
 export const PAUSE = 'PAUSE';
+export const START = 'START';
+export const DOWN = 'DOWN';
+export const REFRESH = 'REFRESH';
+export const ADD_TETRI = 'ADD_TETRI';

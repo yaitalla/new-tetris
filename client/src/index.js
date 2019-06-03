@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import App from './components/app';
 import {store} from './config/store';
 import {socketStream} from './config/socketStream';
+import inputs from './config/inputs';
 
 ReactDom.render((
     <Provider store={store}>
@@ -12,3 +13,4 @@ ReactDom.render((
 ), document.getElementById('tetris'))
 
 socketStream();
+inputs();

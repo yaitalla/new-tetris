@@ -4,6 +4,18 @@ const socketEngine = require('./socketEngine');
 const grid = require('./Process/grid');
 const shaper = require('./Process/shapes');
 
+const nextShape = (room, index, grid) => {
+  const shape = room.shapes[index+1].shape;
+  for (let i=0; i<4; i++) {
+    for (let j=4; j<8; j++) {
+      grid[i][j] = shape[i][j-4]
+    }
+  }
+  return {
+    field: grid,
+    shapeIndex: index+1
+  }
+}
 let userlist = [];
 let roomlist = [];
 
@@ -55,8 +67,14 @@ const initEngine = io => {
     socket.emit('USER_ID', socket.id)
     socket.on('PAUSE', data => {
       io.in(data.room).emit('PAUSE', {
-        playing: data.playing == true ? false : true
+        playing: data.playing == true ? false : true,
       })
+    })
+    socket.on('START', data => {
+      io.in(data.room.name).emit('START', nextShape(data.room, data.index, grid()))
+    })
+    socket.on('ADD_TETRI', data => {
+      socket.emit('ADD_TETRI', {field: nextShape(data.room, data.index, data.field)})
     })
     socket.on('ENTER_ROOM', data => {
       let ret;
@@ -67,8 +85,6 @@ const initEngine = io => {
          }
        }
       socket.join(data.name)
-      //roomlist[ret].shapes.push(shaper(ret.shapes))
-      console.log(roomlist[ret].shapes)
       socket.emit('ACTUAL_ROOM', {room: ret, field: grid()})
       io.emit('ROOM_UPDATE', roomlist)
     })
@@ -83,6 +99,7 @@ const initEngine = io => {
        userlist.splice(userlist.indexOf(socket.id), 1)
        io.emit('ROOM_UPDATE', roomlist)
        io.emit('USERS_UPDATE', {userlist, roomlist})
+      loginfo("User disconnected: " + socket.id)
     })
   })
 }

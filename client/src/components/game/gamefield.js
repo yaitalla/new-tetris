@@ -17,7 +17,7 @@ const Row = (row, i) => {
     )
 }
 
-const GameField = ({field}) => {
+const GameField = ({field, i}) => {
     return (
         <div style={gamefield}>
             {field.map((rows, i) => 
@@ -30,7 +30,8 @@ const GameField = ({field}) => {
 const mapStateToProps = (state) => {
     return {
         message: state.message,
-        field: state.field
+        field: state.field,
+        i: state.shapeIndex
     }
 }
 
