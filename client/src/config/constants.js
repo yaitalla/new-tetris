@@ -10,3 +10,4 @@ export const START = 'START';
 export const DOWN = 'DOWN';
 export const REFRESH = 'REFRESH';
 export const ADD_TETRI = 'ADD_TETRI';
+export const LEAVE = 'LEAVE';

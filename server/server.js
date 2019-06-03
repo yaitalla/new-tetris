@@ -76,6 +76,11 @@ const initEngine = io => {
     socket.on('ADD_TETRI', data => {
       socket.emit('ADD_TETRI', {field: nextShape(data.room, data.index, data.field)})
     })
+    socket.on('LEAVE', i => {
+      roomlist[i].users.splice(roomlist[i].users.indexOf(socket.id), 1);
+      socket.emit('LEAVE');
+      io.emit('ROOM_UPDATE', roomlist)
+    })
     socket.on('ENTER_ROOM', data => {
       let ret;
       for (let i in roomlist) {

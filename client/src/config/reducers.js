@@ -1,4 +1,4 @@
-import { ALERT, USERS_UPDATE, ROOM_CREATED, ROOM_UPDATE, USER_ID, ACTUAL_ROOM, PAUSE, START, DOWN, ADD_TETRI, REFRESH } from './constants';
+import { ALERT, USERS_UPDATE, ROOM_CREATED, ROOM_UPDATE, USER_ID, ACTUAL_ROOM, PAUSE, START, DOWN, ADD_TETRI, REFRESH, LEAVE } from './constants';
 
 const initial_state = {
     message: 'no message yet',
@@ -13,12 +13,17 @@ const initial_state = {
 
 const rootReducer = (state = initial_state, action) => {
     switch(action.type){
+        case LEAVE:
+            return {
+                ...state,
+                actualRoom: -1
+            }
         case ADD_TETRI:
-        return {
-            ...state,
-            shapeIndex: action.shapeIndex,
-            field: action.field,
-        }
+            return {
+                ...state,
+                shapeIndex: action.shapeIndex,
+                field: action.field,
+            }
         case REFRESH:
             return {
                 ...state

@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {PAUSE, START} from '../../config/constants';
+import {PAUSE, START, LEAVE } from '../../config/constants';
 import socket from '../../config/socketConnect';
+import Soundbtn from './sound';
 
 const PauseButton = (playing, actualRoom, rooms, index, yourID, field) => {
     if (yourID == rooms[actualRoom].owner) {
@@ -13,11 +14,21 @@ const PauseButton = (playing, actualRoom, rooms, index, yourID, field) => {
     }
 }
 
+const leaveRoom = (actualRoom) => {
+    socket.emit(LEAVE, actualRoom)
+}
+
 const Button = ({playing, field, rooms, actualRoom, yourID, shapeIndex}) => {
     return (
         <div>
-            <button onClick={() => PauseButton(playing, actualRoom, rooms,  shapeIndex,yourID, field)}>{playing == true ? "Pause" : "Play"}</button>
-            <button>Exit</button>
+            <button onClick={() => 
+                        PauseButton(playing, actualRoom, rooms,  shapeIndex,
+                        yourID, field)}
+            >
+                {playing == true ? "Pause" : "Play"}
+            </button>
+            <button onClick={() => leaveRoom(actualRoom)}>Exit</button>
+            <Soundbtn/>
         </div>
     )
 }
