@@ -6,15 +6,7 @@ export const game = {
     width: "90vw",
     height: "90vh"
 }
-export const gamefield = {
-    display: "flex",
-    width: "90%",
-    height: "90%",
-    justifyContent: "center",
-    alignContent: "center",
-    alignSelf: "center",
-    backgroundColor: "silver"
-}
+
 
 export const title = {
     display: "flex",
@@ -49,4 +41,49 @@ export const nonimage = {
 export const soudiv = {
     display: "flex",
     justifyContent: "space-around"
+}
+
+export const imgstyle = {
+    width: "25px",
+    border: "1px solid black",
+    height: "25px",
+}
+
+export const rowstyle = {
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "row",
+    width: "100%"
+}
+
+export const emptybox = {
+    width: "4vw",
+    height: "4vh",
+    backgroundColor: "silver",
+}
+
+export const datastyle = {
+    display: "flex",
+    flexDirection: "column",
+    height: "540px",
+    width: "90%",
+    backgroundColor: "silver",
+    border: "1px solid black",
+    alignItems: "center"
+}
+export const gamefield = {
+    display: "flex",
+    flexDirection: "column",
+    width: "90%",
+    backgroundColor: "silver",
+    border: "1px solid black"
+}
+
+export const screenstyle = {
+    display:"flex",
+    flexDirection: "row",
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    alignContent: "space-around"
 }

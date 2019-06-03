@@ -51,4 +51,4 @@ const tetriminos = {
 	],
 }
 
-export default tetriminos;
+module.exports = tetriminos;

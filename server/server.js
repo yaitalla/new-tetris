@@ -2,6 +2,7 @@ const fs = require('fs')
 const debug = require('debug')
 const socketEngine = require('./socketEngine');
 const grid = require('./Process/grid');
+const shaper = require('./Process/shapes');
 
 let userlist = [];
 let roomlist = [];
@@ -44,7 +45,8 @@ const initEngine = io => {
       const data = {
         name: roomname,
         owner: socket.id,
-        users: []
+        users: [],
+        shapes: shaper([])
       }
       roomlist.push(data)
       io.emit('ROOM_CREATED', roomlist)
@@ -64,9 +66,11 @@ const initEngine = io => {
           roomlist[i].users.push(socket.id)
          }
        }
-       socket.join(data.name)
-     socket.emit('ACTUAL_ROOM', {room: ret, field: grid()})
-     io.emit('ROOM_UPDATE', roomlist)
+      socket.join(data.name)
+      //roomlist[ret].shapes.push(shaper(ret.shapes))
+      console.log(roomlist[ret].shapes)
+      socket.emit('ACTUAL_ROOM', {room: ret, field: grid()})
+      io.emit('ROOM_UPDATE', roomlist)
     })
     socket.on('disconnect', () => {
       for (let i in roomlist) {

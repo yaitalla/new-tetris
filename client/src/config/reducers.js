@@ -7,7 +7,9 @@ const initial_state = {
     rooms: [],
     actualRoom: -1,
     playing: false,
-    field: []
+    field: [],
+    shapes: [],
+    shapeIndex: -1
 }
 
 const rootReducer = (state = initial_state, action) => {
@@ -26,7 +28,8 @@ const rootReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 actualRoom: action.room,
-                field: action.field
+                field: action.field,
+                shapeIndex: -1
             }
         case ROOM_CREATED:
             return {

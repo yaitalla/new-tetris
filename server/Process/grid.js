@@ -14,4 +14,4 @@ const grid = () => {
     return (i)
 }
 
-export default grid;
+module.exports = grid;
