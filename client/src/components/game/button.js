@@ -4,6 +4,7 @@ import {PAUSE, START, LEAVE } from '../../config/constants';
 import socket from '../../config/socketConnect';
 import Soundbtn from './sound';
 
+
 const PauseButton = (playing, actualRoom, rooms, index, yourID, field) => {
     if (yourID == rooms[actualRoom].owner) {
         if (index == -1) {
@@ -18,7 +19,9 @@ const leaveRoom = (actualRoom) => {
     socket.emit(LEAVE, actualRoom)
 }
 
+
 const Button = ({playing, field, rooms, actualRoom, yourID, shapeIndex}) => {
+    
     return (
         <div>
             <button onClick={() => 

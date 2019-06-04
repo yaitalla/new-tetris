@@ -11,3 +11,7 @@ export const DOWN = 'DOWN';
 export const REFRESH = 'REFRESH';
 export const ADD_TETRI = 'ADD_TETRI';
 export const LEAVE = 'LEAVE';
+export const LEFT = 'LEFT';
+export const RIGHT = 'RIGHT';
+export const SHAPE_REQ = 'SHAPE_REQ';
+export const FALL = 'FALL';

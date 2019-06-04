@@ -1,9 +1,10 @@
 import socket from './socketConnect';
 import { store } from './store';
 import { SERVER_MESSAGE, ROOM_CREATED, ALERT, ROOM_UPDATE,
-     USERS_UPDATE, USER_ID, ACTUAL_ROOM, PAUSE, START, LEAVE } from './constants';
+     USERS_UPDATE, USER_ID, ACTUAL_ROOM, PAUSE, START, LEAVE, FALL } from './constants';
 
 export const socketStream = () => {
+    
     socket.on(SERVER_MESSAGE, msg =>
         store.dispatch({type: ALERT, message: msg})
     )

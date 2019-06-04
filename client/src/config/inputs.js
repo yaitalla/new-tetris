@@ -1,9 +1,9 @@
 import {store} from './store';
 import move from '../actions/moves';
 const keyboard = {
-    // 37: 'left',
-    // 38: 'rotate',
-    // 39: 'right',
+    37: 'left',
+    38: 'rotate',
+    39: 'right',
     40: 'down'
   };
   

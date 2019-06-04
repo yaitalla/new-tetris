@@ -53,6 +53,10 @@ const initEngine = io => {
         userlist.push(socket.id)
     }
     io.emit('USERS_UPDATE', {userlist, roomlist})
+    socket.on('SHAPE_REQ', data => {
+      roomlist[data.i].shapes = shaper(data.oldShapes);
+      io.emit('ROOM_UPDATE', roomlist)
+    })
     socket.on('CREATE_ROOM', roomname => {
       const data = {
         name: roomname,

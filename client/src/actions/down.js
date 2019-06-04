@@ -1,13 +1,17 @@
 import {store} from '../config/store';
 import socket from '../config/socketConnect';
 import grid from '../config/misc/emptyGrid';
+import gridCopy from '../config/misc/gridCopy';
 import { DOWN, ADD_TETRI} from '../config/constants';
 
 const nextShape = (room, index, grid) => {
     const shape = room.shapes[index+1].shape;
     for (let i=0; i<4; i++) {
       for (let j=4; j<8; j++) {
-        grid[i][j] = shape[i][j-4]
+          if (shape[i][j-4] == 2){
+            grid[i][j] = shape[i][j-4]
+          }
+        
       }
     }
     return {
@@ -31,27 +35,10 @@ const addTetriminos = (field) => {
     return nextShape(room, i, field)
 }
 
-const gridCopy = (field) => {
-    const grid = []
-    for (let i=0; i<20; i++) { //game height: 20 blocs
-        grid.push([]);
-    }
-    for (let i=0; i<20; i++) {
-        for(let j=0; j<10; j++) { //game width 10 blocs
-            if (field[i][j] != 2) {
-                grid[i].push(field[i][j]);
-            } else {
-                grid[i].push(0)
-            }
-        }
-    }
-    return grid;
-}
 
 const down = () => {
     const field = store.getState().field;
     const ret = gridCopy(field);
-    console.log(ret)
     for (let i=0; i<20; i++) {
         for (let j=0; j<10; j++) {
             if (field[i][j] == 2 ) {

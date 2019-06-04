@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Sound from 'react-sound';
 import accept from './assets/accept.wav';
 
 const playsound = () => {
