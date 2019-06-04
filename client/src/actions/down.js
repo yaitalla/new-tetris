@@ -2,7 +2,7 @@ import {store} from '../config/store';
 import socket from '../config/socketConnect';
 import grid from '../config/misc/emptyGrid';
 import gridCopy from '../config/misc/gridCopy';
-import { DOWN, ADD_TETRI} from '../config/constants';
+import { DOWN, ADD_TETRI, GAME_OVER} from '../config/constants';
 
 const nextShape = (room, index, grid) => {
     const shape = room.shapes[index+1].shape;
@@ -11,7 +11,11 @@ const nextShape = (room, index, grid) => {
           if (shape[i][j-4] == 2){
             grid[i][j] = shape[i][j-4]
           }
-        
+          if (grid[i][j] == 1) {
+              return {
+                  type: GAME_OVER
+              }
+          }
       }
     }
     return {

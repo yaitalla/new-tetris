@@ -114,10 +114,13 @@ const initEngine = io => {
 }
 
 const create = (params) =>{
+  
   const promise = new Promise( (resolve, reject) => {
     const app = require('http').createServer()
+    
     initApp(app, params, () =>{
       const io = require('socket.io')(app)
+      
       const stop = (cb) => {
         io.close()
         app.close( () => {
@@ -126,11 +129,12 @@ const create = (params) =>{
         loginfo(`Engine stopped.`)
         cb()
       }
-
+      
       initEngine(io)
       resolve({stop})
     })
   })
+
   return promise
 }
 

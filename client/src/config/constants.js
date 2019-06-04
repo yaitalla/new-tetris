@@ -15,3 +15,4 @@ export const LEFT = 'LEFT';
 export const RIGHT = 'RIGHT';
 export const SHAPE_REQ = 'SHAPE_REQ';
 export const FALL = 'FALL';
+export const GAME_OVER = 'GAME_OVER';

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { gamefield, imgstyle, rowstyle, emptybox } from './style';
-import Gamedata from './gamedata';
 import sq from './assets/sq.png';
 import box from './assets/emptybox.png';
 import fall from '../../config/misc/fall';
-
+import { store } from '../../config/store';
+import down from '../../actions/down';
 
 const Row = (row, i) => {
     return (
@@ -22,9 +22,12 @@ const Row = (row, i) => {
 
 const GameField = ({field, i, playing}) => {
     if (playing == true) {
-        console.log(playing)
-        fall();
-      }
+        setTimeout(() => {
+            fall().then((value) => {
+                store.dispatch(value)
+            });
+        }, 900);
+    }
     return (
         <div style={gamefield}>
             {field.map((rows, i) => 
