@@ -11,8 +11,7 @@ import { REFRESH } from '../constants';
 
 const fall = () => {
   const fallPromise = new Promise((resolve, reject) => {
-      store.dispatch(down())
-    resolve({type: REFRESH})
+    resolve(down());
   });
   
   // fallPromise.then((value) => {

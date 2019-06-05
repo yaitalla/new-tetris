@@ -104,6 +104,13 @@ const initEngine = io => {
             roomlist[i].users.splice(j, 1)
           }
         }
+        if (roomlist[i].owner == socket.id){
+          if (roomlist[i].users[0]) {
+            roomlist[i].owner = roomlist[i].users[0]
+          } else {
+            roomlist.splice(i, 1)
+          }
+        }
        }
        userlist.splice(userlist.indexOf(socket.id), 1)
        io.emit('ROOM_UPDATE', roomlist)

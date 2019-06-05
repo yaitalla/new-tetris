@@ -4,7 +4,8 @@ import Landing from './landing';
 import { connect } from 'react-redux';
 import Game from './game';
 import { SHAPE_REQ } from '../config/constants';
-
+import {store} from '../config/store';
+import fall from '../config/misc/fall';
 const globalStyle = {
   display: "flex",
   justifyContent: "center"

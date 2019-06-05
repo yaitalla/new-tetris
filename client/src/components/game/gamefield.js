@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { gamefield, imgstyle, rowstyle, emptybox } from './style';
 import sq from './assets/sq.png';
 import box from './assets/emptybox.png';
-import fall from '../../config/misc/fall';
 import { store } from '../../config/store';
-import down from '../../actions/down';
 
 const Row = (row, i) => {
     return (
@@ -20,14 +18,7 @@ const Row = (row, i) => {
 }
 
 
-const GameField = ({field, i, playing}) => {
-    if (playing == true) {
-        setTimeout(() => {
-            fall().then((value) => {
-                store.dispatch(value)
-            });
-        }, 900);
-    }
+const GameField = ({field, i, playing, falling}) => {
     return (
         <div style={gamefield}>
             {field.map((rows, i) => 
@@ -42,7 +33,8 @@ const mapStateToProps = (state) => {
         message: state.message,
         field: state.field,
         i: state.shapeIndex,
-        playing: state.playing
+        playing: state.playing,
+        falling: state.falling
     }
 }
 

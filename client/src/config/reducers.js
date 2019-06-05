@@ -10,7 +10,8 @@ const initial_state = {
     playing: false,
     field: [],
     shapeIndex: -1,
-    gameOver: false
+    gameOver: false,
+    falling: false
 }
 
 const rootReducer = (state = initial_state, action) => {
