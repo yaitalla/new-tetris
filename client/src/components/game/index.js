@@ -12,20 +12,20 @@ import playsound from '../../config/misc/playSound';
 
 const methods = {
     componentDidUpdate(props) {
-        console.log('updated', props)
+        // console.log('updated', props)
     },
     componentDidMount(props) {
-        console.log('mounted', props)
+        // console.log('mounted', props)
           playsound("landing");
     },
     componentWillUpdate(props){
-        console.log('will update', props)
+        // console.log('will update', props)
     },
     componentWillMount(props){
-      console.log('will mount', props)
+    //   console.log('will mount', props)
     },
     componentWillUnmount(props) {
-        console.log('will Unmount', props)
+        // console.log('will Unmount', props)
     }
 }
 

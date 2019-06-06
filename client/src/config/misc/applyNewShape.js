@@ -1,4 +1,4 @@
-import { ADD_TETRI } from '../constants';
+import { ADD_TETRI, GAME_OVER } from '../constants';
 import playsound from '../misc/playSound';
 
 const nextShape = (room, index, grid) => {
