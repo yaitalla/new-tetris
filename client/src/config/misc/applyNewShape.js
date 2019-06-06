@@ -1,4 +1,5 @@
 import { ADD_TETRI } from '../constants';
+import playsound from '../misc/playSound';
 
 const nextShape = (room, index, grid) => {
     const shape = room.shapes[index+1].shape;
@@ -14,6 +15,7 @@ const nextShape = (room, index, grid) => {
           }
       }
     }
+    playsound("landed")
     return {
         type: ADD_TETRI,
         field: grid,

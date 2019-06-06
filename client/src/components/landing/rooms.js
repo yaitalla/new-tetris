@@ -3,15 +3,19 @@ import { connect } from 'react-redux';
 import { mainWrap, title, userstyle, rowStyle, btn} from './style'
 import Roombutton from './roombutton';
 import socket from '../../config/socketConnect';
+import enter from '../assets/enter.wav';
+import playsound from '../../config/misc/playSound';
 
 const enterRoom = (room) => {
+    playsound("enter room");
     socket.emit('ENTER_ROOM', room)
 }
 
 const row = (room, i) => {
       return (
         <div key={i} style={rowStyle}>
-            <button onClick={() => enterRoom(room)} style={btn}>{room.name}</button>
+            <input style={btn} type={"button"} value={room.name}  onClick={() => enterRoom(room)}/>
+            <audio id={"enter room"} src={enter} ></audio>
         </div>
     )
 }

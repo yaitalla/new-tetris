@@ -5,6 +5,7 @@ import sq from './assets/sq.png';
 import box from './assets/emptybox.png';
 import { store } from '../../config/store';
 
+
 const Row = (row, i) => {
     return (
         <div key={i} style={rowstyle}>

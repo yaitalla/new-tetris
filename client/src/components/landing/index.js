@@ -3,6 +3,29 @@ import { connect } from 'react-redux';
 import { mainWrap, title, infoWrap} from './style'
 import Users from './users';
 import Rooms from './rooms';
+import lifecycle from 'react-pure-lifecycle';
+import playsound from '../../config/misc/playSound';
+
+const methods = {
+    componentDidUpdate(props) {
+        console.log('updated', props)
+    },
+    componentDidMount(props) {
+        console.log('mounted', props)
+        if (props.rooms.length > 0) {
+           playsound("exit");
+        }
+    },
+    componentWillUpdate(props){
+        console.log('will update', props)
+    },
+    componentWillMount(props){
+      console.log('will mount', props)
+    },
+    componentWillUnmount(props) {
+        console.log('will Unmount', props)
+    }
+}
 
 const Title = () => {
     return (
@@ -22,7 +45,7 @@ const Infos = () => {
       )
   }
 
-const Landing = () => {
+const Landing = ({rooms}) => {
   return (
       <div style={mainWrap}> 
         <Title />
@@ -30,6 +53,11 @@ const Landing = () => {
       </div>
     )
 }
+const mapStateToProps = (state) => {
+  return {
+      rooms: state.rooms
+  }
+}
+const LandingConnector = lifecycle(methods)(Landing)
 
-
-export default Landing;
+export default connect(mapStateToProps)(LandingConnector);

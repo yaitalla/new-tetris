@@ -1,5 +1,6 @@
 import {store} from './store';
 import move from '../actions/moves';
+import playsound from '../config/misc/playSound';
 const keyboard = {
     37: 'left',
     38: 'rotate',
@@ -17,6 +18,7 @@ const keyboard = {
         if (e.metaKey === true || boardKeys.indexOf(e.keyCode) === -1) {
           return;
         }
+        playsound("shape moving")
         store.dispatch(move[type]())
         return;
      };
