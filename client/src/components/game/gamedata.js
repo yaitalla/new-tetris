@@ -6,7 +6,6 @@ import emptybox from './assets/emptybox.png';
 import { rowstyle, imgstyle, box } from './style';
 
 const Row = (row, i) => {
-    console.log(row)
     return (
         <div key={i} style={rowstyle}>
             {row.map((block, i) => 

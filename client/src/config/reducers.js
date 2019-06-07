@@ -1,5 +1,7 @@
-import { ALERT, USERS_UPDATE, ROOM_CREATED, ROOM_UPDATE, USER_ID, LEFT, RIGHT,
-    ACTUAL_ROOM, PAUSE, START, DOWN, ADD_TETRI, REFRESH, LEAVE, GAME_OVER } from './constants';
+import { ALERT, USERS_UPDATE, ROOM_CREATED,
+    ROOM_UPDATE, USER_ID, LEFT, RIGHT, ACTUAL_ROOM,
+    PAUSE, START, DOWN, ADD_TETRI, REFRESH, LEAVE,
+    GAME_OVER, ROTATE } from './constants';
 
 const initial_state = {
     message: 'no message yet',
@@ -23,6 +25,11 @@ const rootReducer = (state = initial_state, action) => {
                 gameOver: true
             }
         case RIGHT:
+            return {
+                ...state,
+                field: action.field,
+            }
+        case ROTATE:
             return {
                 ...state,
                 field: action.field

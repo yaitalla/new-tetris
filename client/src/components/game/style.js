@@ -7,7 +7,6 @@ export const game = {
     height: "90vh"
 }
 
-
 export const title = {
     display: "flex",
     justifyContent: "center",
@@ -59,7 +58,7 @@ export const rowstyle = {
 export const emptybox = {
     width: "4vw",
     height: "4vh",
-    backgroundColor: "silver",
+    backgroundColor: "#f4f4f4",
 }
 
 export const datastyle = {
@@ -86,4 +85,13 @@ export const screenstyle = {
     width: "100%",
     alignItems: "center",
     alignContent: "space-around"
+}
+
+export const gameover = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    alignContent: "center",
+    width: "100%",
+    alignSelf: "center",
 }

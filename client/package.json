@@ -32,6 +32,7 @@
     "material-ui": "^0.20.2",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
+    "react-delay-render": "^0.1.2",
     "react-dom": "^16.6.3",
     "react-konva": "^16.7.1",
     "react-pure-lifecycle": "^3.0.0",

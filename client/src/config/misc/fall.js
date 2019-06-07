@@ -10,8 +10,9 @@ import { REFRESH } from '../constants';
 
 
 const fall = () => {
+  let playing = store.getState().playing;
   const fallPromise = new Promise((resolve, reject) => {
-    resolve(down());
+    resolve(playing);
   });
   
   // fallPromise.then((value) => {

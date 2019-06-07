@@ -6,17 +6,6 @@ import {store} from './config/store';
 import {socketStream} from './config/socketStream';
 import inputs from './config/inputs';
 
-const drop = (playing) => {
-    let id = setInterval(() => {
-      fall().then((value) => {
-          store.dispatch(value)
-      });
-    }, 500);
-    if (playing == false) {
-      clearInterval(id)
-    }
-}
-
 ReactDom.render((
     <Provider store={store}>
         <App/>
@@ -25,4 +14,3 @@ ReactDom.render((
 
 socketStream();
 inputs();
-drop(store.getState().playing);

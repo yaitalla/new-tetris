@@ -5,7 +5,6 @@ import {RIGHT, REFRESH} from '../config/constants';
 const right = () => {
     const field = store.getState().field;
     const ret = gridCopy(field);
-    console.log(ret)
     for (let i=0; i<20; i++) {
         for (let j=0; j<10; j++) {
             if (field[i][j] == 2 ) {

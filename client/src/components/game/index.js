@@ -9,6 +9,7 @@ import enter from '../assets/enter.wav';
 import landed from './assets/landed.wav';
 import move_sound from '../assets/shape_moving.wav';
 import playsound from '../../config/misc/playSound';
+import GameOver from './gameover';
 
 const methods = {
     componentDidUpdate(props) {
@@ -29,7 +30,7 @@ const methods = {
     }
 }
 
-const Game = ({actualRoom, rooms}) => {
+const Game = ({actualRoom, rooms, gameOver}) => {
     return (
         <div style={game}>
             <p style={title}>GAME</p>
@@ -46,7 +47,8 @@ const Game = ({actualRoom, rooms}) => {
 const mapStateToProps = (state) => {
     return {
         actualRoom: state.actualRoom,
-        rooms: state.rooms
+        rooms: state.rooms,
+        gameOver: state.gameOver
     }
 }
 
