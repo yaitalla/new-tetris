@@ -13,7 +13,8 @@ const initial_state = {
     field: [],
     shapeIndex: -1,
     gameOver: false,
-    falling: false
+    falling: false,
+    score: 0 
 }
 
 const rootReducer = (state = initial_state, action) => {
@@ -28,6 +29,7 @@ const rootReducer = (state = initial_state, action) => {
             return {
                 ...state,
                 field: action.field,
+                rooms: action.rooms
             }
         case ROTATE:
             return {
@@ -37,7 +39,8 @@ const rootReducer = (state = initial_state, action) => {
         case LEFT:
             return {
                 ...state,
-                field: action.field
+                field: action.field,
+                rooms: action.rooms
             }
         case LEAVE:
             return {
@@ -49,6 +52,7 @@ const rootReducer = (state = initial_state, action) => {
                 ...state,
                 shapeIndex: action.shapeIndex,
                 field: action.field,
+                score: action.score == 0 ? 0 : state.score + action.score
             }
         case REFRESH:
             return {
@@ -57,7 +61,8 @@ const rootReducer = (state = initial_state, action) => {
         case DOWN:
             return {
                 ...state,
-                field: action.field
+                field: action.field,
+                rooms: action.rooms
             }
         case START:
             return {

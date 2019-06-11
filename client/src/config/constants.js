@@ -17,3 +17,4 @@ export const SHAPE_REQ = 'SHAPE_REQ';
 export const FALL = 'FALL';
 export const GAME_OVER = 'GAME_OVER';
 export const ROTATE = 'ROTATE';
+export const MALUS = 'MALUS';

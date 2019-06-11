@@ -3,15 +3,7 @@ import art from '../../config/misc/gameoverArt';
 import { gameover, rowstyle, imgstyle } from './style';
 import sq from './assets/sq.png'
 import emptybox from './assets/emptybox.png';
-import ReactDelayRender from 'react-delay-render';
-
-export const getBlogListAPI = () => {
-    return new Promise(resolve => {
-      setTimeout(() => {
-        resolve(getBlogList());
-      }, 5000);
-    });
-  };
+// import ReactDelayRender from 'react-delay-render';
 
 const Row = ({row, i}) => {
     return (

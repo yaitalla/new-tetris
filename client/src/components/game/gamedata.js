@@ -17,7 +17,7 @@ const Row = (row, i) => {
     )
 }
 
-const Gamedata = ({rooms, roomIndex, shapeIndex}) => {
+const Gamedata = ({rooms, roomIndex, shapeIndex, score}) => {
     const room = rooms[roomIndex];
     const shape = room.shapes[shapeIndex+1].shape;
     return (
@@ -28,6 +28,11 @@ const Gamedata = ({rooms, roomIndex, shapeIndex}) => {
                     Row(row, i)
                 )
             }
+            <hr/>
+            <hr/>
+            <hr/>
+            <br/>
+            <h3>Score: {score}</h3>
         </div>
     )
 }
@@ -36,7 +41,8 @@ const mapStateToProps = (state) => {
     return {
         rooms: state.rooms,
         roomIndex: state.actualRoom,
-        shapeIndex: state.shapeIndex
+        shapeIndex: state.shapeIndex,
+        score: state.score
     }
 }
 

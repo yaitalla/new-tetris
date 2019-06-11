@@ -1,6 +1,7 @@
-// import {checkBelow} from '../config/misc/collisionDown';
+import {checkBelow} from '../config/misc/collision';
 import { ROTATE , REFRESH} from '../config/constants';
 import gridCopy from '../config/misc/gridCopy';
+import { store } from '../config/store';
 
 const rotater = (shape) => {
     let checkArray = 10
@@ -18,28 +19,29 @@ const rotater = (shape) => {
     const update = new Array(checkArray).fill(0);
     for (let i=0; i<4; i++){
         ret[i] = ret[i].slice(checkArray).concat(update)
-        //console.log('rotater', ret[i])
     }
     return ret;
 }
 
 
 const rotate = () => {
+    if (store.getState().playing == false) {
+        return ({type: REFRESH})
+    }
     const state = store.getState();
-    let field = state.field, shapes = state.shapes, index = state.shapeIndex;
+    let field = state.field,
+        shapes = state.rooms[state.actualRoom].shapes,
+        index = state.shapeIndex;
     const x = shapes[index].leftCorner.x
     const y = shapes[index].leftCorner.y
     const walls = (x >= 8);
     const walls2 = shapes[index].id == 5 && x >= 7;
-  //  console.log(x, y)
     if (!checkBelow(field) || walls || walls2) {
         return { type: REFRESH, nbr: state.nb+1 }
     }
     let ret = gridCopy(field);
     const rot = {
-        color: shapes[index].color,
         shape: rotater(shapes[index].shape),
-        id: shapes[index].id,
         leftCorner: shapes[index].leftCorner
     }
     for (let i=y; i<(y+4); i++) {

@@ -9,6 +9,7 @@ import enter from '../assets/enter.wav';
 import landed from './assets/landed.wav';
 import move_sound from '../assets/shape_moving.wav';
 import playsound from '../../config/misc/playSound';
+import clear_line from './assets/clear_line.wav';
 import GameOver from './gameover';
 
 const methods = {
@@ -40,6 +41,7 @@ const Game = ({actualRoom, rooms, gameOver}) => {
             <audio id={"landing"} src={enter} ></audio>
             <audio id={"shape moving"} src={move_sound} ></audio>
             <audio id={"landed"} src={landed} ></audio>
+            <audio id={"clear line"} src={clear_line} ></audio>
         </div>
     )
 }

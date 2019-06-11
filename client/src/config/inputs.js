@@ -13,6 +13,7 @@ const keyboard = {
   const boardKeys = Object.keys(keyboard).map(e => parseInt(e, 10));
   const inputs = () => 
   {
+      let status = store.getState().playing;
       const keyDown = (e) => {
         const type = keyboard[e.keyCode];
         if (e.metaKey === true || boardKeys.indexOf(e.keyCode) === -1) {

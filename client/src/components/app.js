@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Game from './game';
 import { SHAPE_REQ } from '../config/constants';
 import {store} from '../config/store';
-import fall from '../config/misc/fall';
 import exit from './assets/exit.wav';
 
 const globalStyle = {

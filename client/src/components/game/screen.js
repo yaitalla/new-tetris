@@ -7,11 +7,13 @@ import down from '../../actions/down';
 import fall from '../../config/misc/fall';
 import { store } from '../../config/store';
 import GameOver from './gameover';
+import playsound from '../../config/misc/playSound';
 
 const drop = (playing) => {
     let id = setInterval(() => {
       fall().then((value) => {
           if (value == true) {
+            playsound("shape moving")
             store.dispatch(down())
           }
       });
